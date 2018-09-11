@@ -1,0 +1,22 @@
+{
+  "name": "autonoer_local_server",
+  "version": "1.0.0",
+  "description": "local server to communicate with autonoer extension.",
+  "main": "index.js",
+  "scripts": {
+    "flyway-dev": "cd flyway&&flyway -configFiles=./conf/dev.conf",
+    "flyway-test": "cd flyway&&flyway -configFiles=./conf/test.conf",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "server"
+  ],
+  "author": "Yi",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  }
+}

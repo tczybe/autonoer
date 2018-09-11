@@ -1,0 +1,19 @@
+{
+  "name": "autonoer",
+  "version": "1.0",
+  "description": "A light weight web automation extension for chrome.",
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "http://10.200.47.120:3000/*"
+  ],
+  "browser_action": {
+    "default_title": "Autonoer",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["main.js"],
+    "persistent": false
+  },
+  "manifest_version": 2
+}
