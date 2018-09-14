@@ -38,6 +38,6 @@ DECLARE
 BEGIN
 	delete from Step where cid = targetId;
   delete from Procedure where cid = targetId returning * into pp;
-  RETURN row_to_json(pp);
+    RETURN row_to_json(pp);
 END;
 $$ LANGUAGE PLPGSQL

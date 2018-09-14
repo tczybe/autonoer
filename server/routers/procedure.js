@@ -2,6 +2,7 @@ const router = require('express').Router();
 const db = require('../db/postgresdb');
 const { procedure } = require('../db/postsql');
 const bunyan = require('bunyan');
+var status = require('./status');
 
 const logger = bunyan.createLogger({ name: 'logger-customer' });
 if (process.env.NODE_ENV === 'test') {
@@ -9,6 +10,7 @@ if (process.env.NODE_ENV === 'test') {
 }
 
 router.get('/procedures/:pid', (req, res, next) => {
+  console.log(status);
   const values = [req.params.pid];
   db.query(procedure.get_procedures_from_project, values, (err, result) => {
     if (err) {

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const db = require('../db/postgresdb');
 const { project } = require('../db/postsql');
 const bunyan = require('bunyan');
+var status = require('./status');
 
 const logger = bunyan.createLogger({ name: 'logger-project'});
 if (process.env.NODE_ENV === 'test') {
@@ -10,6 +11,8 @@ if (process.env.NODE_ENV === 'test') {
 
 router.get('/projects/', (req, res, next) => {
   db.query(project.get_all_projects, null, (err, result) => {
+    console.log(status);
+    status.project++;
     if (err) {
       logger.info(err);
       res.status(500).end();
